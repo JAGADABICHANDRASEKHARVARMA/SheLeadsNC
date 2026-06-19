@@ -413,6 +413,16 @@ section{position:relative;z-index:2}
   border:2px dashed var(--rose-pink);
   text-align:center;
 }
+.map-stat .vision-text{
+  font-family:'Playfair Display',serif;font-weight:700;font-style:italic;
+  font-size:1.6rem;color:var(--leadership-pink);line-height:1;
+}
+.map-aspiration{
+  text-align:center;margin-top:36px;
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;
+  color:var(--pine);
+}
+.map-aspiration em{color:var(--leadership-pink);font-weight:500}
 .map-stat .num{
   font-family:'Playfair Display',serif;font-weight:800;
   font-size:2.6rem;color:var(--leadership-pink);line-height:1;
@@ -455,6 +465,31 @@ section{position:relative;z-index:2}
   background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='1' fill='white' opacity='.2'/></svg>");
   opacity:.5;
 }
+.init-group-title{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:1.5rem;color:var(--pine);
+  margin:20px 0 28px;
+}
+.init-group-title .dot{
+  display:inline-block;width:14px;height:14px;border-radius:50%;
+}
+.init-group-title .dot-current{background:var(--leadership-pink);box-shadow:0 0 0 5px rgba(240,106,155,.2)}
+.init-group-title .dot-soon{background:var(--sage);box-shadow:0 0 0 5px rgba(191,211,193,.4)}
+.init-group-title .init-group-sub{
+  font-family:'Caveat',cursive;font-weight:500;font-size:1.2rem;
+  color:var(--gray);font-style:italic;flex-basis:100%;
+  margin-left:28px;
+}
+.status-badge{
+  display:inline-block;padding:5px 12px;border-radius:50px;
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:.65rem;
+  letter-spacing:1.4px;text-transform:uppercase;
+  margin-bottom:10px;align-self:flex-start;
+}
+.badge-now{background:var(--blush);color:var(--hot-pink)}
+.badge-soon{background:var(--soft-sage);color:var(--pine)}
+.badge-vision{background:var(--warm-cream);color:var(--gold);border:1px solid var(--champagne)}
 .init-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
 .init-body h4{
   font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem;
@@ -601,6 +636,37 @@ section{position:relative;z-index:2}
   font-family:'Caveat',cursive;font-size:1.1rem;color:var(--leadership-pink);
 }
 .story-meta::before{content:'—';color:var(--rose-pink)}
+
+/* === SHARE YOUR STORY === */
+.share-story{background:var(--warm-cream)}
+.share-card{
+  max-width:780px;margin:0 auto;
+  background:white;border-radius:32px;padding:60px 50px;
+  text-align:center;border:2px dashed var(--rose-pink);
+  position:relative;overflow:hidden;
+}
+.share-card::before,.share-card::after{
+  content:'';position:absolute;width:200px;height:200px;border-radius:50%;
+}
+.share-card::before{top:-100px;right:-100px;background:radial-gradient(circle,var(--soft-blush) 0%, transparent 70%)}
+.share-card::after{bottom:-100px;left:-100px;background:radial-gradient(circle,var(--soft-sage) 0%, transparent 70%)}
+.share-card > *{position:relative;z-index:1}
+.share-icon{
+  width:88px;height:88px;margin:0 auto 22px;
+  background:linear-gradient(135deg,var(--leadership-pink),var(--hot-pink));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:white;box-shadow:0 14px 30px rgba(240,106,155,.35);
+}
+.share-icon svg{width:42px;height:42px}
+.share-card h3{
+  font-family:'Playfair Display',serif;font-weight:700;font-size:1.8rem;
+  color:var(--pine);margin-bottom:14px;line-height:1.2;
+}
+.share-card h3 .script{font-family:'Dancing Script',cursive;color:var(--leadership-pink)}
+.share-card p{
+  font-size:1rem;color:var(--gray);line-height:1.6;
+  max-width:520px;margin:0 auto 26px;
+}
 
 /* === EVENTS === */
 .events{background:var(--cream)}
@@ -969,9 +1035,8 @@ footer::before{
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#pillars">Pillars</a></li>
-      <li><a href="#initiatives">Programs</a></li>
-      <li><a href="#stories">Stories</a></li>
-      <li><a href="#events">Events</a></li>
+      <li><a href="#initiatives">Initiatives</a></li>
+      <li><a href="#mentor">Mentorship</a></li>
       <li><a href="#join" class="nav-cta">Join Us</a></li>
     </ul>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -996,11 +1061,10 @@ footer::before{
       <p class="lead">Building community through storytelling, leadership, mentorship, service, education, and opportunities for women across North Carolina.</p>
       <div class="hero-ctas">
         <a href="#join" class="btn btn-primary">
-          Join Our Community
+          Join the Village
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="#mentor" class="btn btn-secondary">Become A Mentor</a>
-        <a href="#join" class="btn btn-outline">Support Our Mission</a>
+        <a href="#about" class="btn btn-outline">Our Vision</a>
       </div>
     </div>
 
@@ -1255,8 +1319,8 @@ footer::before{
         <span class="section-eyebrow">Who We Are</span>
         <h2>A North Carolina where <span class="pink">women are connected,</span> supported, and inspired to lead.</h2>
         <span class="quote-mark">"</span>
-        <p>She Leads NC brings women together through storytelling, leadership, service, and community. We create opportunities for women from all backgrounds and experiences to connect, learn from one another, share their stories, and make a meaningful impact in their communities.</p>
-        <p>North Carolina is filled with women making a difference every day. Some lead businesses. Some lead nonprofits. Some serve in government. Some lead within their homes, families, faith communities, and neighborhoods. <strong>She Leads NC was created to bring those voices together.</strong></p>
+        <p>She Leads NC brings women together through storytelling, leadership, service, and community — creating opportunities for women from all backgrounds to connect, learn from one another, and make a meaningful impact.</p>
+        <p><strong>We were created to bring those voices together.</strong></p>
 
         <div class="vision-mission">
           <div class="vm-card">
@@ -1480,41 +1544,48 @@ footer::before{
 
       <div class="map-stats reveal">
         <div class="map-stat">
-          <div class="num">100</div>
-          <div class="label">NC Counties Served</div>
+          <div class="vision-text">Mountains</div>
+          <div class="label">To the West</div>
         </div>
         <div class="map-stat">
-          <div class="num">6</div>
-          <div class="label">Regional Hubs</div>
+          <div class="vision-text">Cities</div>
+          <div class="label">& Growing Hubs</div>
         </div>
         <div class="map-stat">
-          <div class="num">28+</div>
-          <div class="label">Cities Connected</div>
+          <div class="vision-text">Rural</div>
+          <div class="label">Communities</div>
         </div>
         <div class="map-stat">
-          <div class="num">∞</div>
-          <div class="label">Stories To Share</div>
+          <div class="vision-text">Coast</div>
+          <div class="label">To the East</div>
         </div>
       </div>
+      <p class="map-aspiration reveal">Our vision: <em>every county, every kind of community, every woman</em>.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== SIGNATURE INITIATIVES ===== -->
-<section class="section initiatives" id="initiatives">
+<!-- <section class="section initiatives" id="initiatives">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">signature initiatives</span>
       <h2 class="section-title">Programs Built <span class="pink">for Her.</span></h2>
-      <p class="section-sub">Six signature initiatives designed to celebrate, support, and elevate women across North Carolina.</p>
+      <p class="section-sub">Six signature initiatives — some launching now, others in development. Each one designed to celebrate, support, and elevate women across North Carolina.</p>
     </div>
 
+    <h3 class="init-group-title reveal">
+      <span class="dot dot-current"></span>
+      <span>Launching Now</span>
+      <span class="init-group-sub">our first set of initiatives, starting today</span>
+    </h3>
     <div class="init-grid">
       <div class="init-card reveal">
         <div class="init-banner">
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 30 h40 v40 h-40 z M30 30 l40 40 M70 30 l-40 40"/><circle cx="50" cy="50" r="14" fill="currentColor"/></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-now">Launching</span>
           <h4>Stories That Lead</h4>
           <p>Leadership panels, conversations, and interviews where women share lessons, challenges, and the experiences that shaped who they are today.</p>
           <span class="init-link">Read Stories →</span>
@@ -1526,6 +1597,7 @@ footer::before{
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M50 15 l8 25 h25 l-20 16 l8 25 l-21 -15 l-21 15 l8 -25 l-20 -16 h25 z" fill="currentColor"/></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-now">Launching</span>
           <h4>Women Who Lead NC</h4>
           <p>Recognizing and celebrating the women leading businesses, communities, governments, and families across the state.</p>
           <span class="init-link">Meet Them →</span>
@@ -1537,20 +1609,30 @@ footer::before{
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M50 80 Q15 60 15 35 Q15 18 32 18 Q44 18 50 30 Q56 18 68 18 Q85 18 85 35 Q85 60 50 80 Z" fill="currentColor"/></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-now">Launching</span>
           <h4>She Serves NC</h4>
           <p>Food drives, hygiene drives, family assistance, and partnerships that meet practical needs and open new pathways.</p>
           <span class="init-link">Get Involved →</span>
         </div>
       </div>
 
+    </div>
+
+    <h3 class="init-group-title reveal" style="margin-top:80px">
+      <span class="dot dot-soon"></span>
+      <span>Coming Soon & In Development</span>
+      <span class="init-group-sub">building toward what's next</span>
+    </h3>
+    <div class="init-grid">
       <div class="init-card reveal">
         <div class="init-banner">
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M25 30 L50 18 L75 30 L75 75 L25 75 z M40 75 v-25 h20 v25" /></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-soon">Coming Soon</span>
           <h4>She Leads Closet</h4>
           <p>Professional clothing collections for women entering the workforce, interviewing, or rebuilding their wardrobes and confidence.</p>
-          <span class="init-link">Donate →</span>
+          <span class="init-link">Stay Updated →</span>
         </div>
       </div>
 
@@ -1559,9 +1641,10 @@ footer::before{
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="#1F4D2E" stroke-width="3" stroke-linecap="round"><path d="M20 35 L50 22 L80 35 L50 48 z M30 40 v25 a20 8 0 0040 0 v-25 M80 35 v18" stroke-linejoin="round"/></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-soon">Coming Soon</span>
           <h4>She Leads Scholarship Fund</h4>
           <p>Supporting women pursuing education, training, certifications, workforce development, and leadership opportunities — at any stage of life.</p>
-          <span class="init-link">Apply →</span>
+          <span class="init-link">Stay Updated →</span>
         </div>
       </div>
 
@@ -1570,14 +1653,16 @@ footer::before{
           <svg class="deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="50" cy="35" r="14"/><path d="M50 65 v15 M30 80 h40"/></svg>
         </div>
         <div class="init-body">
+          <span class="status-badge badge-vision">Vision · 2026+</span>
           <h4>The She Leads Conference</h4>
           <p>Our flagship annual gathering — a day of storytelling, learning, mentorship, and connection for women across NC.</p>
-          <span class="init-link">Save the Date →</span>
+          <span class="init-link">Learn More →</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+-->
 
 <!-- ===== MENTORSHIP ===== -->
 <section class="section mentorship" id="mentor">
@@ -1643,9 +1728,9 @@ footer::before{
           <span>Growth</span>
           <span>Opportunity</span>
         </div>
+        <p style="font-family:'Caveat',cursive;color:var(--rose-pink);font-size:1.3rem;margin-bottom:18px">♡ our mentorship program is in development — be among the first to know</p>
         <div class="hero-ctas">
-          <a href="#join" class="btn btn-primary">Become A Mentor</a>
-          <a href="#join" class="btn btn-outline" style="color:white;border-color:white">Find A Mentor</a>
+          <a href="#newsletter" class="btn btn-primary">Express Interest</a>
         </div>
       </div>
     </div>
@@ -1712,9 +1797,10 @@ footer::before{
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Workforce development support</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Women in reentry & rebuilding</li>
         </ul>
+        <p style="font-family:'Caveat',cursive;color:var(--leadership-pink);font-size:1.3rem;margin-bottom:18px">♡ the scholarship fund is in development — help us launch it</p>
         <div class="hero-ctas">
-          <a href="#join" class="btn btn-primary">Apply Now</a>
-          <a href="#join" class="btn btn-outline">Donate To Fund</a>
+          <a href="#newsletter" class="btn btn-primary">Stay Updated</a>
+          <a href="#join" class="btn btn-outline">Support The Vision</a>
         </div>
       </div>
     </div>
@@ -1761,160 +1847,35 @@ footer::before{
   </div>
 </section>
 
-<!-- ===== COMMUNITY STORIES ===== -->
-<section class="section stories" id="stories">
+<!-- ===== SHARE YOUR STORY ===== -->
+<section class="section share-story" id="stories">
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-eyebrow">community stories</span>
-      <h2 class="section-title">Real Women. <span class="pink">Real Stories.</span></h2>
-      <p class="section-sub">Lessons learned, lives rebuilt, leaders made. The wisdom of our sisters, shared in their own voices.</p>
+      <span class="section-eyebrow">your voice belongs here</span>
+      <h2 class="section-title">Share <span class="script">Your Story.</span></h2>
+      <p class="section-sub">We're collecting stories from women across North Carolina — about leadership, reinvention, service, faith, and beginning again. Your story might be exactly what another woman needs to hear.</p>
     </div>
 
-    <div class="stories-masonry">
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Leadership</span>
-          <svg viewBox="0 0 200 240"><circle cx="100" cy="80" r="40" fill="white"/><path d="M40 200 Q40 130 100 130 Q160 130 160 200 z" fill="white"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"I led from the kitchen table first."</h4>
-          <p>Maya raised three children and became mayor of her small NC town in the same decade. Leadership, she says, looks different than it once did.</p>
-          <div class="story-meta">Maya, Asheville</div>
-        </div>
-      </article>
-
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Reentry</span>
-          <svg viewBox="0 0 200 180"><circle cx="100" cy="60" r="36" fill="white"/><path d="M50 160 Q50 100 100 100 Q150 100 150 160 z" fill="white"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"Beginning again is a kind of bravery."</h4>
-          <p>After ten years away from work, Carmen returned to school at 47 and now runs the literacy program that once supported her own daughter.</p>
-          <div class="story-meta">Carmen, Greensboro</div>
-        </div>
-      </article>
-
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Mentorship</span>
-          <svg viewBox="0 0 200 260"><circle cx="80" cy="80" r="32" fill="white" opacity=".9"/><circle cx="130" cy="100" r="28" fill="white"/><path d="M40 230 Q40 160 100 160 Q160 160 160 230 z" fill="white"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"My mentor changed my whole orbit."</h4>
-          <p>A chance pairing through She Leads NC connected Tiana with a mentor who helped her negotiate her first salary — and her second, and her third.</p>
-          <div class="story-meta">Tiana, Charlotte</div>
-        </div>
-      </article>
-
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Service</span>
-          <svg viewBox="0 0 200 200"><path d="M100 160 Q40 110 40 70 Q40 40 70 40 Q90 40 100 60 Q110 40 130 40 Q160 40 160 70 Q160 110 100 160" fill="white"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"Service is the bridge home."</h4>
-          <p>Layla's hygiene drive started in her trunk and now reaches 14 NC counties — built shoebox by shoebox, woman by woman.</p>
-          <div class="story-meta">Layla, Durham</div>
-        </div>
-      </article>
-
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Scholarship</span>
-          <svg viewBox="0 0 200 240"><path d="M40 80 L100 50 L160 80 L100 110 z" fill="white"/><path d="M55 84 v40 q45 22 90 0 v-40" fill="white" opacity=".8"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"At 52, I walked across that stage."</h4>
-          <p>Dolores received the She Leads Scholarship at an age most people are planning retirement. She's planning her practice instead.</p>
-          <div class="story-meta">Dolores, Raleigh</div>
-        </div>
-      </article>
-
-      <article class="story-card reveal">
-        <div class="story-img">
-          <span class="story-tag">Community</span>
-          <svg viewBox="0 0 200 180"><circle cx="60" cy="80" r="24" fill="white"/><circle cx="100" cy="70" r="28" fill="white" opacity=".9"/><circle cx="140" cy="80" r="24" fill="white"/><path d="M30 160 Q30 110 100 110 Q170 110 170 160 z" fill="white" opacity=".8"/></svg>
-        </div>
-        <div class="story-body">
-          <h4>"From the mountains, with love."</h4>
-          <p>A circle of women in Boone meets every Tuesday — book club, board room, prayer circle, soup kitchen. The roles rotate. The love doesn't.</p>
-          <div class="story-meta">The Tuesday Sisters</div>
-        </div>
-      </article>
+    <div class="share-card reveal">
+      <div class="share-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      </div>
+      <h3>Every story matters. <span class="script">Especially yours.</span></h3>
+      <p>Whether you've led from a boardroom or a kitchen table, whether you're just starting again or have decades of wisdom — we want to hear from you.</p>
+      <a href="#newsletter" class="btn btn-primary">Tell Us Your Story</a>
     </div>
   </div>
 </section>
 
-<!-- ===== EVENTS ===== -->
-<section class="section events" id="events">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">upcoming events</span>
-      <h2 class="section-title">Come Gather <span class="script">With Us.</span></h2>
-      <p class="section-sub">Panels, conferences, workshops, volunteer days, and community gatherings — there's a seat at the table for you.</p>
-    </div>
 
-    <div class="events-grid">
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">Feb</span><span class="day">14</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Leadership Panel</span>
-          <h4>Stories That Lead: Women in Healthcare</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Raleigh, NC · 6:00 PM</div>
-        </div>
-      </div>
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">Mar</span><span class="day">08</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Workshop</span>
-          <h4>Finding Your Voice: A Storytelling Workshop</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Charlotte, NC · 10:00 AM</div>
-        </div>
-      </div>
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">Apr</span><span class="day">26</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Conference</span>
-          <h4>The She Leads Conference 2026</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Greensboro, NC · All Day</div>
-        </div>
-      </div>
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">May</span><span class="day">17</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Volunteer Day</span>
-          <h4>She Serves NC — Spring Hygiene Drive</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Durham, NC · 9:00 AM</div>
-        </div>
-      </div>
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">Jun</span><span class="day">21</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Mentor Mixer</span>
-          <h4>Mentor & Mentee Summer Social</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Wilmington, NC · 5:30 PM</div>
-        </div>
-      </div>
-      <div class="event-card reveal">
-        <div class="event-date"><span class="month">Jul</span><span class="day">12</span><span class="year">2026</span></div>
-        <div class="event-body">
-          <span class="event-tag">Community Gathering</span>
-          <h4>Mountains to Coast Brunch Series</h4>
-          <div class="event-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Asheville, NC · 11:00 AM</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== INSTAGRAM ===== -->
 <section class="section instagram">
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-eyebrow">our community on instagram</span>
+      <span class="section-eyebrow">follow our journey</span>
       <h2 class="section-title">@sheleadsnc</h2>
-      <p class="section-sub">Behind-the-scenes moments, member spotlights, stories, and the everyday magic of our sisterhood.</p>
+      <p class="section-sub">Be among the first to follow along as we build this community — one story, one woman, one connection at a time.</p>
     </div>
 
     <div class="ig-grid reveal">
@@ -1946,82 +1907,38 @@ footer::before{
         <div class="join-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <h3>Become A Member</h3>
-        <p>Join a community of women who lead, serve, learn, and lift each other up — in person and online, across all of NC.</p>
-        <a href="#" class="btn btn-primary">Join Today</a>
+        <h3>Join the Community</h3>
+        <p>Be among the first women shaping what She Leads NC becomes. Connect with other women across the state who are building this with us.</p>
+        <a href="#newsletter" class="btn btn-primary">Join the Village</a>
       </div>
 
       <div class="join-card reveal">
         <div class="join-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><circle cx="17" cy="9" r="3"/><path d="M2 21v-2a5 5 0 015-5h4a5 5 0 015 5v2M15 21v-2a4 4 0 014-4h1"/></svg>
         </div>
-        <h3>Become A Mentor</h3>
-        <p>Pass on what you wish someone had told you. Even an hour a month changes a woman's life — and yours.</p>
-        <a href="#" class="btn btn-primary">Mentor Now</a>
+        <h3>Share Your Story</h3>
+        <p>Your voice matters. Whether you've led from a boardroom, a kitchen table, or are just beginning again — we want to hear from you.</p>
+        <a href="#stories" class="btn btn-primary">Tell Us Your Story</a>
       </div>
 
       <div class="join-card reveal">
         <div class="join-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
-        <h3>Volunteer</h3>
-        <p>From hygiene drives to scholarship reviews — your hands, heart, and time become someone else's beginning.</p>
-        <a href="#" class="btn btn-primary">Get Involved</a>
+        <h3>Support the Vision</h3>
+        <p>Help us launch our scholarship fund, mentorship program, and service initiatives. Your support becomes someone else's beginning.</p>
+        <a href="#newsletter" class="btn btn-primary">Get Involved</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
-<section class="section testimonials">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">in her own words</span>
-      <h2 class="section-title">What Our <span class="script">Sisters</span> Are Saying.</h2>
-    </div>
-  </div>
-  <div class="testi-track">
-    <div class="testi-row">
-      <!-- 8 testimonials, duplicated for seamless loop -->
-      <div class="testi-card"><p class="testi-quote">She Leads NC felt like coming home to a family I didn't know I had. I'm braver now.</p><div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Maya R.</div><div class="testi-role">member · Asheville</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">My mentor sees me — not just where I am, but where I'm going. That changes everything.</p><div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Tiana B.</div><div class="testi-role">mentee · Charlotte</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">I came in to volunteer and walked out with a sisterhood. These women are my people.</p><div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Layla M.</div><div class="testi-role">volunteer · Durham</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">The scholarship didn't just pay tuition. It told me I was worth investing in.</p><div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dolores K.</div><div class="testi-role">scholar · Raleigh</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">After everything I've been through, I never thought I'd belong somewhere. I do now.</p><div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Carmen V.</div><div class="testi-role">reentry · Greensboro</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">From the mountains to the coast — I've never felt more connected to the women of NC.</p><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah J.</div><div class="testi-role">mentor · Boone</div></div></div></div>
 
-      <!-- Duplicates -->
-      <div class="testi-card"><p class="testi-quote">She Leads NC felt like coming home to a family I didn't know I had. I'm braver now.</p><div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Maya R.</div><div class="testi-role">member · Asheville</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">My mentor sees me — not just where I am, but where I'm going. That changes everything.</p><div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Tiana B.</div><div class="testi-role">mentee · Charlotte</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">I came in to volunteer and walked out with a sisterhood. These women are my people.</p><div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Layla M.</div><div class="testi-role">volunteer · Durham</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">The scholarship didn't just pay tuition. It told me I was worth investing in.</p><div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dolores K.</div><div class="testi-role">scholar · Raleigh</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">After everything I've been through, I never thought I'd belong somewhere. I do now.</p><div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Carmen V.</div><div class="testi-role">reentry · Greensboro</div></div></div></div>
-      <div class="testi-card"><p class="testi-quote">From the mountains to the coast — I've never felt more connected to the women of NC.</p><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah J.</div><div class="testi-role">mentor · Boone</div></div></div></div>
-    </div>
-  </div>
-</section>
 
-<!-- ===== IMPACT COUNTERS ===== -->
-<section class="section impact">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">our impact, in numbers</span>
-      <h2 class="section-title">Growing. <span class="script">Together.</span></h2>
-      <p class="section-sub">Real numbers behind real women, real stories, and real change across North Carolina.</p>
-    </div>
 
-    <div class="impact-grid">
-      <div class="impact-stat reveal"><span class="num" data-count="2800">0</span><span class="label">Women Connected</span></div>
-      <div class="impact-stat reveal"><span class="num" data-count="540">0</span><span class="label">Mentors Matched</span></div>
-      <div class="impact-stat reveal"><span class="num" data-count="125">0</span><span class="label">Scholarships Awarded</span></div>
-      <div class="impact-stat reveal"><span class="num" data-count="9400">0</span><span class="label">Volunteer Hours</span></div>
-      <div class="impact-stat reveal"><span class="num" data-count="86">0</span><span class="label">Community Events</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== NEWSLETTER ===== -->
-<section class="section newsletter">
+<section class="section newsletter" id="newsletter">
   <div class="container">
     <div class="nl-card reveal">
       <div class="floral-divider">
@@ -2064,19 +1981,18 @@ footer::before{
         <li><a href="#about">About Us</a></li>
         <li><a href="#pillars">Our Pillars</a></li>
         <li><a href="#initiatives">Initiatives</a></li>
-        <li><a href="#stories">Stories</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="#mentor">Mentorship</a></li>
+        <li><a href="#stories">Share Your Story</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h5>Get Involved</h5>
       <ul>
-        <li><a href="#join">Become A Member</a></li>
-        <li><a href="#mentor">Become A Mentor</a></li>
-        <li><a href="#join">Volunteer</a></li>
-        <li><a href="#">Donate</a></li>
-        <li><a href="#">Apply For Scholarship</a></li>
+        <li><a href="#join">Join the Community</a></li>
+        <li><a href="#newsletter">Stay Updated</a></li>
+        <li><a href="#stories">Share Your Story</a></li>
+        <li><a href="#newsletter">Support the Vision</a></li>
       </ul>
     </div>
 
@@ -2137,28 +2053,6 @@ const io=new IntersectionObserver(entries=>{
 },{threshold:.12,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// === Animated counters ===
-const counters=document.querySelectorAll('.impact-stat .num');
-const counterIO=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target;
-      const target=parseInt(el.dataset.count);
-      const start=performance.now();
-      const duration=2200;
-      const tick=now=>{
-        const p=Math.min(1,(now-start)/duration);
-        const eased=1-Math.pow(1-p,3);
-        el.textContent=Math.floor(eased*target).toLocaleString();
-        if(p<1)requestAnimationFrame(tick);
-        else el.textContent=target.toLocaleString();
-      };
-      requestAnimationFrame(tick);
-      counterIO.unobserve(el);
-    }
-  });
-},{threshold:.4});
-counters.forEach(c=>counterIO.observe(c));
 
 // === Back to top ===
 const bt=document.getElementById('backTop');
