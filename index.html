@@ -1612,7 +1612,7 @@ footer::before{
           <span class="status-badge badge-now">Launching</span>
           <h4>She Serves NC</h4>
           <p>Food drives, hygiene drives, family assistance, and partnerships that meet practical needs and open new pathways.</p>
-          <span class="init-link">Get Involved →</span>
+          <a class="init-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeKbfIqpu6alMs-cWyQ6ZxsMB16RWA-afG-SOuO1wYOMvnMvQ/viewform" target="_blank" rel="noopener noreferrer">Get Involved →</a>
         </div>
       </div>
 
@@ -1862,7 +1862,7 @@ footer::before{
       </div>
       <h3>Every story matters. <span class="script">Especially yours.</span></h3>
       <p>Whether you've led from a boardroom or a kitchen table, whether you're just starting again or have decades of wisdom — we want to hear from you.</p>
-      <a href="#newsletter" class="btn btn-primary">Tell Us Your Story</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeS3lQqubek0BX-2NLMG6bb96RE0TN5KvJQYQML9x6zgM9L1Q/viewform" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Tell Us Your Story</a>
     </div>
   </div>
 </section>
@@ -1909,7 +1909,7 @@ footer::before{
         </div>
         <h3>Join the Community</h3>
         <p>Be among the first women shaping what She Leads NC becomes. Connect with other women across the state who are building this with us.</p>
-        <a href="#newsletter" class="btn btn-primary">Join the Village</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTdLlCnyPdIZPrkDddopQLHLDT9DHl8sIwWoqBbqcd-5feig/viewform" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Village</a>
       </div>
 
       <div class="join-card reveal">
@@ -1918,7 +1918,7 @@ footer::before{
         </div>
         <h3>Share Your Story</h3>
         <p>Your voice matters. Whether you've led from a boardroom, a kitchen table, or are just beginning again — we want to hear from you.</p>
-        <a href="#stories" class="btn btn-primary">Tell Us Your Story</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeS3lQqubek0BX-2NLMG6bb96RE0TN5KvJQYQML9x6zgM9L1Q/viewform" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Tell Us Your Story</a>
       </div>
 
       <div class="join-card reveal">
@@ -1927,7 +1927,7 @@ footer::before{
         </div>
         <h3>Support the Vision</h3>
         <p>Help us launch our scholarship fund, mentorship program, and service initiatives. Your support becomes someone else's beginning.</p>
-        <a href="#newsletter" class="btn btn-primary">Get Involved</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKbfIqpu6alMs-cWyQ6ZxsMB16RWA-afG-SOuO1wYOMvnMvQ/viewform" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Involved</a>
       </div>
     </div>
   </div>
@@ -2062,6 +2062,7 @@ window.addEventListener('scroll',()=>{
 bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 // === Newsletter ===
+const SL_GET_INVOLVED = 'https://docs.google.com/forms/d/e/1FAIpQLSeKbfIqpu6alMs-cWyQ6ZxsMB16RWA-afG-SOuO1wYOMvnMvQ/viewform';
 document.getElementById('nlBtn').addEventListener('click',()=>{
   const e=document.getElementById('nlEmail').value.trim();
   const m=document.getElementById('nlMsg');
@@ -2073,6 +2074,11 @@ document.getElementById('nlBtn').addEventListener('click',()=>{
   m.textContent='Welcome to the sisterhood! ♡';
   m.style.color='#1F4D2E';
   document.getElementById('nlEmail').value='';
+  // Open the Get Involved Google Form in a new tab
+  try{window.open(SL_GET_INVOLVED,'_blank');}catch(err){
+    // Fallback: navigate in same tab
+    window.location.href = SL_GET_INVOLVED;
+  }
 });
 
 // === Parallax doodles ===
